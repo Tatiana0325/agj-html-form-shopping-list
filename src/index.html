@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Shopping List</title>
+</head>
+<body>
+  <div class="new-product">
+    <span class="name">Товар</span>
+    <img src="./img/plus.png" alt="Добавить" class="plus">
+  </div>
+
+  <table class="shop-list">
+    <tr class="string-table">
+      <th class="header">Название</th>
+      <th class="header">Стоимость</th>
+      <th class="header">Действия</th>
+    </tr>
+  </table>
+
+  <form novalidate class="shop-list-add unvisible">
+    <input type="text" class="name-product" placeholder="Ведите название товара">
+    <div class="error-text-name invisible"></div>
+
+    <input type="text" class="cost-product" placeholder="Ведите стоимость товара">
+    <div class="error-text-cost invisible"></div>
+    
+    <div class="button-group">
+      <button type="submit" class="save-product">Сохранить</button>
+      <button type="button" class="closing">Отмена</button>
+    </div>
+  </form>
+</body>
+</html>
