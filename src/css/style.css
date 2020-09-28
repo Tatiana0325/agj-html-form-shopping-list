@@ -1,51 +1,144 @@
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 550px;
+  position: relative;
+}
 .new-product {
-
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 200px;
+  margin-bottom: 20px;
 }
 
-.name {
-
+.title-name {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 20px;
+  color: #01fc01;
 }
 
-.plus {
-	width: 10px;
+.plus,
+.pencil,
+.cross {
+  height: 20px;
+}
+
+.cross {
+  margin-left: 10px;
+}
+
+.change-block {
+  display: flex;
+  width: 50px;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .shop-list {
-
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 2px;
 }
 
-.string-table {
-
+.header-table {
+  background-color: #cccccc;
 }
 
 .header {
-
+  font-family: "Times New Roman", Times, serif;
+  font-size: 20px;
 }
 
-.shop-list-add {
-
+.title {
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 18px;
 }
 
-.unvisible {
-
+.shop-list-add,
+.shop-list-change,
+.delete-product {
+  position: absolute;
+  top: 40px;
+  left: 60px;
+  width: 400px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 2px;
+  background-color: #ffffff;
+  padding: 15px;
 }
 
-.name-product {
-
+.invisible {
+  display: none;
 }
 
-.error-text-name, .error-text-cost {
+.product {
+  width: 380px;
+  height: 20px;
+  border-radius: 7px;
+  margin-bottom: 20px;
+}
 
+.error-text {
+  position: absolute;
+  border: 10px solid transparent;
+  text-align: center;
+  vertical-align: middle;
+  width: 200px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 20px;
+  color: #ff0000;
+  border-style: solid;
+  border-color: #cccccc;
+  background-color: #ffffff;
+  border-width: 2px;
+}
+
+.name-product.error ~ .error-text,
+.cost-product.error ~ .error-text {
+  display: block;
+}
+
+.product ~ .error-text {
+  display: none;
+}
+
+.name-product ~ .error-text {
+  left: 100px;
+  top: 50px;
+}
+
+.cost-product ~ .error-text {
+  left: 100px;
+  top: 120px;
 }
 
 .button-group {
-
+  margin-top: 10px;
+  width: 300px;
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+  justify-content: space-between;
 }
 
-.save-product {
-
+.save-product,
+.closing,
+.delete,
+.not-delete {
+  width: 90px;
+  height: 30px;
+  border-radius: 15px;
 }
 
-.closing {
-	
+.btn-pencil, .btn-cross {
+  display: inline-block;
 }

@@ -1,37 +1,38 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Shopping List</title>
-</head>
-<body>
-  <div class="new-product">
-    <span class="name">Товар</span>
-    <img src="./img/plus.png" alt="Добавить" class="plus">
-  </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Shopping List</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="new-product">
+        <span class="title-name">Товар</span>
+        <div class="btn-plus">
+          <img src="./img/plus.png" alt="Добавить" class="plus" />
+        </div>
+      </div>
 
-  <table class="shop-list">
-    <tr class="string-table">
-      <th class="header">Название</th>
-      <th class="header">Стоимость</th>
-      <th class="header">Действия</th>
-    </tr>
-  </table>
+      <table class="shop-list">
+        <tr class="header-table">
+          <th class="header">Название</th>
+          <th class="header">Стоимость</th>
+          <th class="header">Действия</th>
+        </tr>
+      </table>
 
-  <form novalidate class="shop-list-add unvisible">
-    <input type="text" class="name-product" placeholder="Ведите название товара">
-    <div class="error-text-name invisible"></div>
-
-    <input type="text" class="cost-product" placeholder="Ведите стоимость товара">
-    <div class="error-text-cost invisible"></div>
-    
-    <div class="button-group">
-      <button type="submit" class="save-product">Сохранить</button>
-      <button type="button" class="closing">Отмена</button>
+      <div class="delete-product invisible">
+        <div class="header">Вы действительно хотите удалить продукт?</div>
+        <div class="button-group">
+          <button class="delete" type="submit">Да</button>
+          <button class="not-delete" type="submit">Нет</button>
+        </div>
+      </div>
     </div>
-  </form>
-</body>
+  </body>
 </html>
