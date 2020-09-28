@@ -1,5 +1,5 @@
 export default function createTr(item) {
-	let el = document.createElement("tr");
+  let el = document.createElement("tr");
   el.classList.add(".string-table");
   el.innerHTML = `
 		<td class="title name">${item.name}</td>
@@ -14,7 +14,7 @@ export default function createTr(item) {
 				</div>
 			</div>
 		</td>
-	`
+	`;
 
-	return el;
+  return el;
 }

@@ -1,7 +1,7 @@
 import Products from "./Products";
 import Validator from "./Validator";
-import createForm from './createForm';
-import createTr from './createTr';
+import createForm from "./createForm";
+import createTr from "./createTr";
 
 function valid(form, fields, inputCost) {
   Validator.removeError(fields);
@@ -12,23 +12,25 @@ function valid(form, fields, inputCost) {
 
 export default class Controller {
   constructor() {
-		this.products = [{
-			name: 'Samsung',
-			cost: '10000'
-		},
-		{
-			name: 'Apple',
-			cost: '120000'
-		}];
+    this.products = [
+      {
+        name: "Samsung",
+        cost: "10000",
+      },
+      {
+        name: "Apple",
+        cost: "120000",
+      },
+    ];
 
-		this.container = document.querySelector('.container');
-		this.formDel = document.querySelector(".delete-product");
-		this.plus = document.querySelector(".btn-plus");
+    this.container = document.querySelector(".container");
+    this.formDel = document.querySelector(".delete-product");
+    this.plus = document.querySelector(".btn-plus");
     this.shopList = document.querySelector(".shop-list");
   }
 
   start() {
-		this.addProduct();
+    this.addProduct();
     this.createShopList();
   }
 
@@ -42,93 +44,93 @@ export default class Controller {
 		`;
 
     this.products.forEach((item, index) => {
-			let el = createTr(item);
-			this.shopList.appendChild(el);
-			
-			const changeEl = el.querySelector(".btn-pencil");
-			const deleteEl = el.querySelector(".btn-cross");
-			
-			deleteEl.addEventListener('click', () => {
-				this.formDel.classList.remove('invisible');
-				this.formDel.classList.add('active');
+      let el = createTr(item);
+      this.shopList.appendChild(el);
 
-				const yesBtn = this.formDel.querySelector('.delete');
-				const noBtn = this.formDel.querySelector('.not-delete');
+      const changeEl = el.querySelector(".btn-pencil");
+      const deleteEl = el.querySelector(".btn-cross");
 
-				yesBtn.addEventListener('click', (event) => {
-					event.preventDefault();
+      deleteEl.addEventListener("click", () => {
+        this.formDel.classList.remove("invisible");
+        this.formDel.classList.add("active");
 
-					this.products.splice(index, 1);
-					el.remove();
+        const yesBtn = this.formDel.querySelector(".delete");
+        const noBtn = this.formDel.querySelector(".not-delete");
 
-					this.formDel.classList.add('invisible');
-					this.formDel.classList.remove('active');
-				});
+        yesBtn.addEventListener("click", (event) => {
+          event.preventDefault();
 
-				noBtn.addEventListener('click', (event) => {
-					event.preventDefault();
+          this.products.splice(index, 1);
+          el.remove();
 
-					this.formDel.classList.add('invisible');
-					this.formDel.classList.remove('active');
-				});
-			});
+          this.formDel.classList.add("invisible");
+          this.formDel.classList.remove("active");
+        });
 
-			changeEl.addEventListener('click', () => {
-				const formChange = createForm('change');
-				const inputNameCh = formChange.querySelector('.name-product');
-				const inputCostCh = formChange.querySelector('.cost-product');
-				const inputsCh = formChange.querySelector('.product');
+        noBtn.addEventListener("click", (event) => {
+          event.preventDefault();
 
-				this.container.appendChild(formChange);
+          this.formDel.classList.add("invisible");
+          this.formDel.classList.remove("active");
+        });
+      });
 
-				inputCostCh.value = item.cost;
-				inputNameCh.value = item.name;
-					
-				formChange.addEventListener('submit', (event) => {
-					event.preventDefault();
+      changeEl.addEventListener("click", () => {
+        const formChange = createForm("change");
+        const inputNameCh = formChange.querySelector(".name-product");
+        const inputCostCh = formChange.querySelector(".cost-product");
+        const inputsCh = formChange.querySelector(".product");
 
-					valid(formChange, inputsCh, inputCostCh);
+        this.container.appendChild(formChange);
 
-					if(Validator.isValid(inputsCh)) {
-						if(inputNameCh.value !== item.name) {
-							this.products[index].name = inputNameCh.value;
-							el.querySelector('.name').textContent = this.products[index].name;
-						};
+        inputCostCh.value = item.cost;
+        inputNameCh.value = item.name;
 
-						if(inputCostCh.value !== item.cost) {
-							this.products[index].cost = inputCostCh.value;
-							el.querySelector('.cost').textContent = this.products[index].cost;
-						};
+        formChange.addEventListener("submit", (event) => {
+          event.preventDefault();
 
-						formChange.reset();
-					}
-				});
+          valid(formChange, inputsCh, inputCostCh);
 
-				formChange.addEventListener("reset", (event) => {
-					event.preventDefault();
+          if (Validator.isValid(inputsCh)) {
+            if (inputNameCh.value !== item.name) {
+              this.products[index].name = inputNameCh.value;
+              el.querySelector(".name").textContent = this.products[index].name;
+            }
 
-					this.container.removeChild(formChange);
-				})
-			});		
-		});
+            if (inputCostCh.value !== item.cost) {
+              this.products[index].cost = inputCostCh.value;
+              el.querySelector(".cost").textContent = this.products[index].cost;
+            }
+
+            formChange.reset();
+          }
+        });
+
+        formChange.addEventListener("reset", (event) => {
+          event.preventDefault();
+
+          this.container.removeChild(formChange);
+        });
+      });
+    });
   }
 
   createShopList() {
     this.plus.addEventListener("click", () => {
-			const formAdd = createForm('add');
-			this.container.insertAdjacentElement("beforeend", formAdd);
+      const formAdd = createForm("add");
+      this.container.insertAdjacentElement("beforeend", formAdd);
 
-			const inputName = formAdd.querySelector('.name-product');
-			let inputCost = formAdd.querySelector('.cost-product');
-			let inputs = formAdd.querySelectorAll('.product');
+      const inputName = formAdd.querySelector(".name-product");
+      let inputCost = formAdd.querySelector(".cost-product");
+      let inputs = formAdd.querySelectorAll(".product");
 
       formAdd.addEventListener("submit", (event) => {
-				event.preventDefault();
-				
+        event.preventDefault();
+
         valid(formAdd, inputs, inputCost);
 
         if (Validator.isValid(inputs)) {
-					const newProduct =  new Products(inputName.value, inputCost.value);
+          const newProduct = new Products(inputName.value, inputCost.value);
           this.products.push(newProduct);
           this.addProduct();
 
@@ -139,8 +141,8 @@ export default class Controller {
       formAdd.addEventListener("reset", (event) => {
         event.preventDefault();
 
-				this.container.removeChild(formAdd);
+        this.container.removeChild(formAdd);
       });
     });
-	}
+  }
 }

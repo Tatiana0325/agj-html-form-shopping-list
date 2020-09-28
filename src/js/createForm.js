@@ -1,7 +1,7 @@
 export default function createForm(name) {
   const form = document.createElement("form");
   form.classList.add(`shop-list-${name}`);
-  form.setAttribute('novalidate', '');
+  form.setAttribute("novalidate", "");
   form.innerHTML = `
 		<div class="name-group">
       <div class="header">Название</div>
@@ -20,6 +20,6 @@ export default function createForm(name) {
         <button class="closing" type="reset">Отмена</button>
       </div>
 	`;
-	
+
   return form;
 }
